@@ -17,6 +17,9 @@ function iphiloso_after_setup_theme(){
 	add_theme_support('html5',array('seach-form','comment-list'));
 	add_theme_support("post-formats",array("image","audio","video","quote","galary"));
 	add_editor_style( "/assets/markup/css/editor-style.css" );
+
+	// register menu
+	register_nav_menu( "topmenu", __("Top Menu","iphiloso"));
 }
 add_action( "after_setup_theme","iphiloso_after_setup_theme" );
 
