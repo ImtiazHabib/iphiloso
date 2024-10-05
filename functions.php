@@ -1,4 +1,5 @@
 <?php
+require_once(get_theme_file_path("/inc/tgm.php"));
 
 // cache cleaar on assets file
 if(site_url( )=="http://localhost:8080/ithemedev"){
