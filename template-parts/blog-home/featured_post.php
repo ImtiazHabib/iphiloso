@@ -92,5 +92,6 @@ while($iphiloso_featured_post->have_posts()){
             </div> <!-- end col-full -->
 </div> <!-- end pageheader-content row -->
 <?php
+
  }
  ?>
