@@ -42,4 +42,26 @@ function iphiloso_assets_including(){
 	wp_enqueue_script("iphiloso_main",get_theme_file_uri("/assets/markup/js/main.js"),array("jquery"),"1.0",true);
 }
 add_action("wp_enqueue_scripts","iphiloso_assets_including");
+
+
+function iphiloso_pagination_links(){
+	global $wp_query;
+
+	$links = paginate_links(array(
+		"current"=>max(1,get_query_var('paged')),
+		"total"=> $wp_query->max_num_pages,
+		"mid-size"=>3,
+		"type"=>"list"
+	));
+	$links = str_replace("<ul class='page-numbers'>","<ul>", $links);
+	$links = str_replace("page-numbers","pgn__num", $links);
+	$links = str_replace("next page-numbers","pgn__next", $links);
+
+
+	 
+
+
+	echo $links;
+
+}
 ?>
