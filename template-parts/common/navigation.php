@@ -6,11 +6,14 @@
 
                         <!-- showing nav menu -->
                         <?php 
-                          wp_nav_menu( array(
+                          $iphiloso_navigation_menu = wp_nav_menu( array(
                               'theme_location'  => 'topmenu',
                               'menu_class'      => 'header__nav',
                               'menu_id'         => 'topmenu',
+                              'echo'=> false,
                           ) );
+                          $iphiloso_navigation_menu = str_replace('menu-item-has-children','has-children', $iphiloso_navigation_menu );
+                          echo $iphiloso_navigation_menu;
                         ?>
 
 
