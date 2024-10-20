@@ -21,7 +21,8 @@
 
     <!-- pageheader
     ================================================== -->
-    <section class="s-pageheader s-pageheader--home">
+    <section class="s-pageheader <?php if(is_home())
+        echo "s-pageheader--home"; ?>">
 
         <header class="header">
             <div class="header__content row">
@@ -78,7 +79,9 @@
 
         <!-- banner featured post section start -->
         <?php 
-           get_template_part("/template-parts/blog-home/featured_post");
+          if(is_home()){
+            get_template_part("/template-parts/blog-home/featured_post");
+          }
         ?>
         <!-- banner featured post section end -->
 

@@ -1,5 +1,6 @@
 <article class="masonry__brick entry format-audio" data-aos="fade-up">
 
+
                     <div class="entry__thumb">
                         <a href="single-audio.html" class="entry__thumb-link">
                             <img src="<?php echo get_theme_file_uri() ?>/assets/markup/images/thumbs/masonry/guitarman-400.jpg" 
