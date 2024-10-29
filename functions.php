@@ -66,4 +66,21 @@ function iphiloso_pagination_links(){
 	echo $links;
 
 }
+
+remove_action("term_description","wpautop");
+/**
+ * Add a sidebar.
+ */
+function iphiloso_register_widget() {
+	register_sidebar( array(
+		'name'          => __( 'About Us Page Sidebar', 'iphiloso' ),
+		'id'            => 'about-us-sidebar',
+		'description'   => __( 'Widgets in this area will be shown on about us page.', 'iphiloso' ),
+		'before_widget' => '<li id="%1$s" class="col-block %2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h3 class="widgettitle">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'iphiloso_register_widget' );
 ?>
