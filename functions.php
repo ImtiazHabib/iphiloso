@@ -81,6 +81,24 @@ function iphiloso_register_widget() {
 		'before_title'  => '<h3 class="widgettitle">',
 		'after_title'   => '</h3>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Contact  Page Maps', 'iphiloso' ),
+		'id'            => 'contact-page-maps',
+		'description'   => __( 'Widgets in this area will be shown on Contact page.', 'iphiloso' ),
+		'before_widget' => '<li id="%1$s" class="%2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Contact Page Description', 'iphiloso' ),
+		'id'            => 'contact-page-description',
+		'description'   => __( 'Widgets in this area will be shown on contact page.', 'iphiloso' ),
+		'before_widget' => '<li id="%1$s" class="%2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
 }
 add_action( 'widgets_init', 'iphiloso_register_widget' );
 ?>
