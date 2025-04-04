@@ -99,6 +99,15 @@ function iphiloso_register_widget() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Right Description', 'iphiloso' ),
+		'id'            => 'footer-right-description',
+		'description'   => __( 'this widget will show on right side of the footer area', 'iphiloso' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
 }
 add_action( 'widgets_init', 'iphiloso_register_widget' );
 ?>
