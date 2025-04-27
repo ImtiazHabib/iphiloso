@@ -78,54 +78,60 @@
                 
                 <div class="col-two md-four mob-full s-footer__sitelinks">
                         
-                    <h4>Quick Links</h4>
+                    <h4><?php _e("Quick Links","iphiloso") ?></h4>
 
                     <ul class="s-footer__linklist">
-                        <li><a href="#0">Home</a></li>
-                        <li><a href="#0">Blog</a></li>
-                        <li><a href="#0">Styles</a></li>
-                        <li><a href="#0">About</a></li>
-                        <li><a href="#0">Contact</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
+                    <?php 
+                            wp_nav_menu( array(
+                                            'theme_location'  => 'footer-left-menu',
+                                            'menu_class'      => 's-footer__linklist',
+                                            'depth'                => 1,
+                                        ) );
+                        ?>
                     </ul>
 
                 </div> <!-- end s-footer__sitelinks -->
 
                 <div class="col-two md-four mob-full s-footer__archives">
                         
-                    <h4>Archives</h4>
+                    <h4><?php _e("Archives","iphiloso") ?></h4>
 
                     <ul class="s-footer__linklist">
-                        <li><a href="#0">January 2018</a></li>
-                        <li><a href="#0">December 2017</a></li>
-                        <li><a href="#0">November 2017</a></li>
-                        <li><a href="#0">October 2017</a></li>
-                        <li><a href="#0">September 2017</a></li>
-                        <li><a href="#0">August 2017</a></li>
+                        <?php 
+                            wp_nav_menu( array(
+                                            'theme_location'  => 'footer-middle-menu',
+                                            'menu_class'      => 's-footer__linklist',
+                                        ) );
+                        ?>
+                    
                     </ul>
 
                 </div> <!-- end s-footer__archives -->
 
                 <div class="col-two md-four mob-full s-footer__social">
                         
-                    <h4>Social</h4>
+                    <h4><?php _e("Social Links","iphiloso") ?></h4>
 
                     <ul class="s-footer__linklist">
-                        <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Instagram</a></li>
-                        <li><a href="#0">Twitter</a></li>
-                        <li><a href="#0">Pinterest</a></li>
-                        <li><a href="#0">Google+</a></li>
-                        <li><a href="#0">LinkedIn</a></li>
+                    <?php 
+                            wp_nav_menu( array(
+                                            'theme_location'  => 'footer-right-menu',
+                                            'menu_class'      => 's-footer__linklist',
+                                        ) );
+                        ?>
                     </ul>
 
                 </div> <!-- end s-footer__social -->
 
                 <div class="col-five md-full end s-footer__subscribe">
                         
-                    <h4>Our Newsletter</h4>
+                    <h4><?php echo __("Our NewsLatter","iphiloso"); ?></h4>
 
-                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+                    <?php 
+                       if(is_active_sidebar('footer-our-newsletter')){
+                        dynamic_sidebar('footer-our-newsletter');
+                       }
+                    ?>
 
                     <div class="subscribe-form">
                         <form id="mc-form" class="group" novalidate="true">
@@ -147,10 +153,12 @@
         <div class="s-footer__bottom">
             <div class="row">
                 <div class="col-full">
-                    <div class="s-footer__copyright">
-                        <span>© Copyright Philosophy 2018</span> 
-                        <span>Site Template by <a href="https://colorlib.com/">Colorlib</a></span>
-                    </div>
+                    <?php 
+                       if(is_active_sidebar('copyright')){
+                        dynamic_sidebar('copyright');
+                       }
+                    ?>
+                    
 
                     <div class="go-top">
                         <a class="smoothscroll" title="Back to Top" href="#top"></a>

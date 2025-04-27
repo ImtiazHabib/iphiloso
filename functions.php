@@ -24,6 +24,12 @@ function iphiloso_after_setup_theme(){
 
 	// register menu
 	register_nav_menu( "topmenu", __("Top Menu","iphiloso"));
+	// footer menus 
+	register_nav_menus( array(
+		'footer-left-menu' => __("Quick Links","iphiloso"),
+		'footer-middle-menu' => __("Archives","iphiloso"),
+		'footer-right-menu' => __("Social Links","iphiloso"),
+	) );
 }
 add_action( "after_setup_theme","iphiloso_after_setup_theme" );
 
@@ -104,6 +110,24 @@ function iphiloso_register_widget() {
 		'id'            => 'footer-right-description',
 		'description'   => __( 'this widget will show on right side of the footer area', 'iphiloso' ),
 		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Our NewsLetter', 'iphiloso' ),
+		'id'            => 'footer-our-newsletter',
+		'description'   => __( 'this widget will show on right side of the footer area', 'iphiloso' ),
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'copyright', 'iphiloso' ),
+		'id'            => 'copyright',
+		'description'   => __( 'this widget will show on right side of the footer area', 'iphiloso' ),
+		'before_widget' => '<div class="s-footer__copyright">',
 		'after_widget'  => '</div>',
 		'before_title'  => '',
 		'after_title'   => '',
