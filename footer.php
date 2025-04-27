@@ -31,7 +31,9 @@
                         </section>
                     </article>
                         <?php
-                     }
+                   
+                      }
+                  wp_reset_query(  );
                     ?>
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
@@ -46,42 +48,21 @@
                     dynamic_sidebar("footer-right-description");
                   }
                 ?>
-
-                <ul class="about__social">
-                    <li>
-                        <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    </li>
-                </ul> <!-- end header__social -->
             </div> <!-- end about -->
 
         </div> <!-- end row -->
 
         <div class="row bottom tags-wrap">
             <div class="col-full tags">
-                <h3>Tags</h3>
+                <h3><?php _e("Tags","iphiloso") ?></h3>
 
                 <div class="tagcloud">
-                    <a href="#0">Salad</a>
-                    <a href="#0">Recipe</a>
-                    <a href="#0">Places</a>
-                    <a href="#0">Tips</a>
-                    <a href="#0">Friends</a>
-                    <a href="#0">Travel</a>
-                    <a href="#0">Exercise</a>
-                    <a href="#0">Reading</a>
-                    <a href="#0">Running</a>
-                    <a href="#0">Self-Help</a>
-                    <a href="#0">Vacation</a>
-                </div> <!-- end tagcloud -->
+                <?php 
+                    the_tags('','','');
+                ?>
+                </div> 
+
+               
             </div> <!-- end tags -->
         </div> <!-- end tags-wrap -->
 
