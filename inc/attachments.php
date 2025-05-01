@@ -15,7 +15,7 @@ function philosophy_attachments( $attachments ) {
         array(
             'name'  => 'title',
             'type'  => 'text',
-            'label' => __( 'Title', 'philosophy' ),
+            'label' => __( 'Title', 'iphiloso' ),
         ),
     );
 
@@ -25,7 +25,7 @@ function philosophy_attachments( $attachments ) {
         'post_type'   => array( 'post' ),
         'filetype'    => array( "image" ),
         'note'        => 'Add Gallery Images',
-        'button_text' => __( 'Attach Image', 'philosophy' ),
+        'button_text' => __( 'Attach Image', 'iphiloso' ),
         'fields'      => $fields,
     );
 

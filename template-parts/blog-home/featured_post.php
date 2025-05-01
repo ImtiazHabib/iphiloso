@@ -15,8 +15,10 @@ while($iphiloso_featured_post->have_posts()){
     $featured_post_data[] = array(
         "title"=> get_the_title(),
         "date"=> get_the_date(),
+        "permalink" => get_the_permalink(),
         "thumbnails"=> get_the_post_thumbnail_url(get_the_ID( ),"large"),
         "author"=> get_the_author_meta("display_name"),
+        "author_link" => get_author_posts_url(get_the_author_meta("ID")),
         "author_avater"=> get_avatar_url(get_the_author_meta("ID")),
         "cat" => $iphiloso_catagories[mt_rand(0,count($iphiloso_catagories)-1) ]->name,
     );
@@ -37,11 +39,11 @@ while($iphiloso_featured_post->have_posts()){
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0"><?php echo esc_html($featured_post_data[0]["cat"]) ?></a></span>
 
-                                <h1><a href="#0" title=""><?php echo esc_html($featured_post_data[0]["title"]) ?></a></h1>
+                                <h1><a href="<?php echo esc_url($featured_post_data[0]["permalink"]) ?>" title="<?php echo esc_html($featured_post_data[0]["title"]) ?>"><?php echo esc_html($featured_post_data[0]["title"]) ?></a></h1>
 
                                 <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="<?php echo esc_html($featured_post_data[0]["author_avater"]) ?>" alt="">
+                                    <a href="<?php echo esc_url($featured_post_data[0]["author_link"]) ?>" class="entry__profile-pic">
+                                        <img class="avatar" src="<?php echo esc_html($featured_post_data[0]["author_avater"]) ?>" alt="<?php echo esc_html($featured_post_data[0]["author"]) ?>">
                                     </a>
 
                                     <ul class="entry__meta">
@@ -66,11 +68,11 @@ while($iphiloso_featured_post->have_posts()){
                             <div class="entry__content">
                                 <span class="entry__category"><a href="#0"><?php echo esc_html($featured_post_data[$i]["cat"]) ?></a></span>
 
-                                <h1><a href="#0" title=""><?php echo esc_html($featured_post_data[$i]["title"]) ?></a></h1>
+                                <h1><a href="<?php echo esc_url($featured_post_data[0]["permalink"]) ?>" title=""><?php echo esc_html($featured_post_data[$i]["title"]) ?></a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="<?php echo esc_url($featured_post_data[$i]["author_avater"]) ?>" alt="">
+                                        <img class="avatar" src="<?php echo esc_url($featured_post_data[$i]["author_avater"]) ?>" alt="<?php echo esc_html($featured_post_data[$i]["author"]) ?>">
                                     </a>
 
                                     <ul class="entry__meta">

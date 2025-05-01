@@ -7,9 +7,9 @@
                         <?php 
                             $iphiloso_comment_count = get_comments_number();
                             if( $iphiloso_comment_count <= 1){
-                                echo $iphiloso_comment_count." ". __("Comment","iphilos");
+                                echo esc_html($iphiloso_comment_count)." ". __("Comment","iphiloso");
                             }else{
-                                echo $iphiloso_comment_count." ". __("Comments","iphilos");
+                                echo esc_html($iphiloso_comment_count)." ". __("Comments","iphiloso");
                             }
                         ?>
                     </h3>

@@ -13,7 +13,7 @@
                               'echo'=> false,
                           ) );
                           $iphiloso_navigation_menu = str_replace('menu-item-has-children','has-children', $iphiloso_navigation_menu );
-                          echo $iphiloso_navigation_menu;
+                          echo wp_kses_post($iphiloso_navigation_menu);
                         ?>
 
 

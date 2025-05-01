@@ -8,8 +8,8 @@ class LwhhSocialIcons_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'tb_social_icons', // Base ID
-            __( 'Lwhh: Social Icons', 'philosophy' ), // Name
-            array( 'description' => __( 'Social Icons', 'philosophy' ), ) // Args
+            __( 'Lwhh: Social Icons', 'iphiloso' ), // Name
+            array( 'description' => __( 'Social Icons', 'iphiloso' ), ) // Args
         );
     }
 
@@ -39,13 +39,13 @@ class LwhhSocialIcons_Widget extends WP_Widget {
         );
         $title        = apply_filters( 'widget_title', $instance['title'] );
 
-        echo $before_widget;
+        echo esc_html($before_widget);
         ?>
         <ul class="about__social">
             <?php
             if ( $title ) {
                 echo "<div class=\"widget-title\">";
-                echo $before_title . esc_html( $title ) . $after_title;
+                echo esc_html($before_title) . esc_html( $title ) . esc_html($after_title);
                 echo "</div>";
             }
             ?>
@@ -66,7 +66,7 @@ class LwhhSocialIcons_Widget extends WP_Widget {
             </div>
         </ul>
         <?php
-        echo $after_widget;
+        echo esc_html($after_widget);
 
     }
 
@@ -110,7 +110,7 @@ class LwhhSocialIcons_Widget extends WP_Widget {
         if ( isset( $instance['title'] ) ) {
             $title = $instance['title'];
         } else {
-            $title = __( 'Social Icons', 'philosophy' );
+            $title = __( 'Social Icons', 'iphiloso' );
         }
 
 
@@ -135,7 +135,7 @@ class LwhhSocialIcons_Widget extends WP_Widget {
         }
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'philosophy' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:', 'iphiloso' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
                    value="<?php echo esc_attr( $title ); ?>"/>
@@ -143,7 +143,7 @@ class LwhhSocialIcons_Widget extends WP_Widget {
         <?php foreach ( $social_icons as $sci ) {
             ?>
             <p>
-                <label for="<?php echo $this->get_field_id( $sci ) ; ?>"><?php echo esc_html( ucfirst( $sci ) . " " . __( 'URL', 'philosophy' ) ); ?>
+                <label for="<?php echo $this->get_field_id( wp_kses_post($sci) ) ; ?>"><?php echo esc_html( ucfirst( wp_kses_post($sci) ) . " " . __( 'URL', 'iphiloso' ) ); ?>
                     : </label>
                 <br/>
 

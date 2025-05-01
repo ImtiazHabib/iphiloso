@@ -69,7 +69,7 @@ function iphiloso_pagination_links(){
 	 
 
 
-	echo $links;
+	echo wp_kses_post($links);
 
 }
 
