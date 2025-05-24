@@ -134,4 +134,17 @@ function iphiloso_register_widget() {
 	) );
 }
 add_action( 'widgets_init', 'iphiloso_register_widget' );
+
+function iphiloso_cpt_link($post_link,$id){
+    $p=get_post($id);
+	if(is_object($p) && "chapter" == get_post_type($id) ){
+		$parent_post_id = get_field('parent_book');
+		$parent_post = get_post($parent_post_id);
+		if($parent_post){
+			$post_link = str_replace("%book%",$parent_post->post_name,$post_link);
+		}
+	}
+	return $post_link;
+}
+add_filter("post_type_link","iphiloso_cpt_link",1,2);
 ?>
