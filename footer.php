@@ -54,11 +54,19 @@
 
         <div class="row bottom tags-wrap">
             <div class="col-full tags">
-                <h3><?php _e("Tags","iphiloso") ?></h3>
+                <?php 
+                   $iphiloso_footer_tags_title = apply_filters("iphiloso_footer_tags_title_filter", "Tags");
+                   $iphiloso_footer_tags_terms = apply_filters("iphiloso_footer_tags_terms_filter", get_tags());
+                ?>
+                <h3><?php echo esc_html($iphiloso_footer_tags_title); ?></h3>
 
                 <div class="tagcloud">
                 <?php 
-                    the_tags('','','');
+                    if(is_array($iphiloso_footer_tags_terms)){
+                    foreach($iphiloso_footer_tags_terms as $pti){
+                        printf('<a href="%s">%s</a>',get_term_link($pti->term_id),$pti->name);
+                    }
+                }
                 ?>
                 </div> 
 

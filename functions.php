@@ -147,4 +147,27 @@ function iphiloso_cpt_link($post_link,$id){
 	return $post_link;
 }
 add_filter("post_type_link","iphiloso_cpt_link",1,2);
+
+function iphiloso_footer_language_heading( $title ) {
+    if ( is_post_type_archive( 'books' ) || is_tax('languages') ) {
+        $title = __( 'Languages', 'philosophy' );
+    }
+
+    return $title;
+}
+
+add_filter( 'iphiloso_footer_tags_title_filter', 'iphiloso_footer_language_heading' );
+
+function iphiloso_footer_language_terms( $tags ) {
+    if ( is_post_type_archive( 'books' ) || is_tax('languages') ) {
+        $tags = get_terms( array(
+            'taxonomy'   => 'languages',
+            'hide_empty' => true
+        ) );
+    }
+    return $tags;
+}
+
+add_filter( 'iphiloso_footer_tags_terms_filter', 'iphiloso_footer_language_terms' );
+
 ?>
